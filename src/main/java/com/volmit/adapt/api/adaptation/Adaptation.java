@@ -354,7 +354,9 @@ public interface Adaptation<T> extends Ticked, Component {
             player.getWorld().playSound(player.getLocation(), Sound.ITEM_BOOK_PAGE_TURN, 1.1f, 1.255f);
             player.getWorld().playSound(player.getLocation(), Sound.ITEM_BOOK_PAGE_TURN, 0.7f, 0.655f);
             player.getWorld().playSound(player.getLocation(), Sound.ITEM_BOOK_PAGE_TURN, 0.3f, 0.855f);
-            getSkill().openGui(player);
+            if (!AdaptConfig.get().isEscClosesAllGuis()) {
+                getSkill().openGui(player);
+            }
         }));
         w.open();
     }

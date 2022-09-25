@@ -187,7 +187,9 @@ public interface Skill<T> extends Ticked, Component {
             player.getWorld().playSound(player.getLocation(), Sound.ITEM_BOOK_PAGE_TURN, 0.7f, 1.455f);
             player.getWorld().playSound(player.getLocation(), Sound.ITEM_BOOK_PAGE_TURN, 0.3f, 1.855f);
 
-            SkillsGui.open(player);
+            if (!AdaptConfig.get().isEscClosesAllGuis()) {
+                SkillsGui.open(player);
+            }
         }));
         w.open();
     }
